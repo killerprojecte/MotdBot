@@ -1,0 +1,38 @@
+plugins {
+    id "java"
+    id 'org.jetbrains.kotlin.jvm' version '1.4.21'
+    id 'com.github.johnrengelman.shadow' version '5.2.0'
+}
+
+shadowJar{
+    manifest {
+        attributes(
+            "Main-Class" : "com.xbaimiao.miraibot.Start"
+        )
+    }
+}
+
+repositories {
+    mavenCentral()
+    jcenter()
+    maven{
+        name = 'CodeMC-repo'
+        url = 'https://repo.codemc.io'
+    }
+}
+
+compileKotlin {
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = "utf-8"
+}
+
+dependencies {
+    compile ('net.mamoe:mirai-core:2.8.0-M1')
+    compile ("net.mamoe:mirai-login-solver-selenium:1.0-dev-17")
+    compile fileTree(dir: 'libs', includes: ['*.jar'])
+}
