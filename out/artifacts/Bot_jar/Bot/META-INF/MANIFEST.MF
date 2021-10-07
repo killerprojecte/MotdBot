@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Implementation-Title: mirai-core-api
+Implementation-Version: 2.8.0-M1
+Implementation-Vendor: Mamoe Technologies
+
